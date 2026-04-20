@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://3xqcwba4omj0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s64y5"]
+
+[node name="Area2D" type="Area2D" unique_id=234812232]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=304212881]
+shape = SubResource("WorldBoundaryShape2D_s64y5")
