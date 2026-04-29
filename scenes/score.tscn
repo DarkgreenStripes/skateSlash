@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://fmleswp71nhd"]
+
+[sub_resource type="GDScript" id="GDScript_pbkhe"]
+script/source = "extends Label
+
+var score_points: int = 0
+
+func _ready() -> void:
+	text = \"Score: \"+str(score_points)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"jump\"):
+		score_points += 1
+	text = \"Score: \"+str(score_points)
+ 
+"
+
+[node name="score" type="Label" unique_id=662391061]
+offset_right = 40.0
+offset_bottom = 23.0
+script = SubResource("GDScript_pbkhe")

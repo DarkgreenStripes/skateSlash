@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://swly8brnb8xc"]
+
+[ext_resource type="Texture2D" uid="uid://ges4q5kelcub" path="res://assets/sprites/flow_bar.png" id="1_t0apr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76f7s"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 0, 31, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xyjt"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 5, 31, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elltj"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 10, 31, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdwfi"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 15, 31, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx1f6"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 20, 31, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ys8i"]
+atlas = ExtResource("1_t0apr")
+region = Rect2(1, 25, 31, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3mbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76f7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xyjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elltj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdwfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx1f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ys8i")
+}],
+"loop": true,
+"name": &"flow",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_ihuh8"]
+script/source = "extends AnimatedSprite2D
+
+@onready var score = get_node(\"../score\")
+@onready var character = get_parent().get_parent()
+
+var flow_points := 0
+var last_checked:= -1
+var is_flowing:= false
+
+func _ready() -> void:
+	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta) -> void:
+	
+	if flow_points >= 5 and Input.is_action_just_pressed(\"Activate_flow\"):
+		is_flowing = true
+	
+		flow_points = 0
+		frame = flow_points
+		
+		character.SPEED = 500
+		await get_tree().create_timer(1.5).timeout
+		character.SPEED = 250
+		is_flowing = false
+
+	elif !is_flowing and score.score_points != 0 and score.score_points != last_checked:
+		
+		print(score.score_points)
+		flow_points += 1
+		frame = flow_points
+			
+		last_checked = score.score_points
+		
+"
+
+[node name="flow_meter" type="AnimatedSprite2D" unique_id=2134586988]
+sprite_frames = SubResource("SpriteFrames_n3mbi")
+animation = &"flow"
+script = SubResource("GDScript_ihuh8")

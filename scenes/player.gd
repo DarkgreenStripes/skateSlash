@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 250.0
-const JUMP_VELOCITY = -200.0
-
+var SPEED = 250.0
+var JUMP_VELOCITY = -200.0
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
