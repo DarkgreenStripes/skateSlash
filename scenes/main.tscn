@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5t56ypeguo3w" path="res://assets/tilemap/Final/Final/Tiles.png" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://swly8brnb8xc" path="res://scenes/flow_meter.tscn" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c11adn37yd7ae" path="res://assets/tilemap/Final/Final/Background_0.png" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://uxml5hcb8lkd" path="res://scenes/mob.tscn" id="5_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -470,7 +471,7 @@ position = Vector2(0, -32)
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=2144186297]
 zoom = Vector2(3, 3)
 
-[node name="AnimatedSprite2D" parent="player/Camera2D" unique_id=2134586988 instance=ExtResource("3_tefeu")]
+[node name="flow_meter" parent="player/Camera2D" unique_id=2134586988 instance=ExtResource("3_tefeu")]
 position = Vector2(-39.499992, -77)
 scale = Vector2(2.548387, 2.5)
 
@@ -490,3 +491,6 @@ tile_set = SubResource("TileSet_tbgi4")
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1887547294]
 tile_map_data = PackedByteArray("AAAYAPf/AAAAAAAAAAAZAPn/AAAAAAAAAAAWAPr/AAAAAAAAAAAVAPr/AAAAAAAAAAAdAPv/AAAAAAAAAAAiAPv/AAAAAAAAAAAOAPz/AAAAAAAAAABKAPz/AAAAAAAAAABLAPz/AAAAAAAAAABMAPz/AAAAAAAAAABNAPz/AAAAAAAAAABOAPz/AAAAAAAAAABPAPz/AAAAAAAAAABQAPz/AAAAAAAAAABRAPz/AAAAAAAAAABSAP3/AAAAAAAAAABTAP3/AAAAAAAAAABUAP3/AAAAAAAAAABVAP3/AAAAAAAAAABWAP3/AAAAAAAAAABXAP3/AAAAAAAAAABYAP3/AAAAAAAAAABZAP3/AAAAAAAAAABaAP3/AAAAAAAAAABbAP3/AAAAAAAAAABcAP3/AAAAAAAAAABdAP3/AAAAAAAAAABeAP3/AAAAAAAAAABfAP3/AAAAAAAAAABgAP7/AAAAAAAAAABhAP7/AAAAAAAAAABiAP7/AAAAAAAAAABjAP7/AAAAAAAAAABkAP7/AAAAAAAAAABlAP7/AAAAAAAAAABmAP7/AAAAAAAAAABnAP7/AAAAAAAAAABoAP7/AAAAAAAAAABpAP7/AAAAAAAAAABqAP7/AAAAAAAAAABrAP7/AAAAAAAAAABsAP7/AAAAAAAAAABtAP7/AAAAAAAAAABuAP//AAAAAAAAAABvAP//AAAAAAAAAABwAP//AAAAAAAAAABxAP//AAAAAAAAAAByAP//AAAAAAAAAABzAP//AAAAAAAAAAB0AP//AAAAAAAAAAB1AP//AAAAAAAAAAAPAPv/AAAAAAAAABA3AP3/AAAAAAAAABAvAPz/AAAAAAAAABAtAPv/AAAAAAAAABAqAPv/AAAAAAAAABA=")
 tile_set = SubResource("TileSet_tefeu")
+
+[node name="mob" parent="." unique_id=1621973403 instance=ExtResource("5_o6xl0")]
+position = Vector2(756, 18)
