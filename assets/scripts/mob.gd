@@ -1,10 +1,11 @@
 extends RigidBody2D
+signal hit
 
-var damage_taken_m:= 0
-var damage_dealt_m:= 10
-var health:= 100
+@export var health_m:= 100
+@export var damage_dealt_m:= 10
 
-@onready var character = get_node("../player")
+@onready var player = get_node("../player")
+@onready var damage_taken_m = player.damage_dealt_p
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,4 +21,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass
+	health_m -= damage_taken_m
+	if health_m <= 0:
+		health_m = 0
+	print("Mob health ", health_m)
+	hit.emit()
+	# disables collision
+	$Area2D/hitbox.set_deferred("disabled", true)
+	await get_tree().create_timer(0.5).timeout
+	$Area2D/hitbox.set_deferred("disabled", false)
