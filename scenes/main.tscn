@@ -452,6 +452,7 @@ texture = ExtResource("3_sugp2")
 
 [sub_resource type="TileSet" id="TileSet_tbgi4"]
 physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 23
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
@@ -482,6 +483,8 @@ offset_right = -98.0
 offset_bottom = -66.0
 
 [node name="Area2D" parent="." unique_id=234812232 instance=ExtResource("2_0wfyh")]
+collision_layer = 4
+collision_mask = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=165091753]
 z_index = 1
@@ -493,4 +496,7 @@ tile_map_data = PackedByteArray("AAAYAPf/AAAAAAAAAAAZAPn/AAAAAAAAAAAWAPr/AAAAAAA
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="mob" parent="." unique_id=1621973403 instance=ExtResource("5_o6xl0")]
-position = Vector2(756, 18)
+position = Vector2(776, 18)
+
+[node name="mob2" parent="." unique_id=1261841168 instance=ExtResource("5_o6xl0")]
+position = Vector2(1221, 22)

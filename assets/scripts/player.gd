@@ -27,13 +27,21 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	velocity.x = SPEED
-
+	
 	move_and_slide()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	health_p -= damage_taken_p
+	if health_p <= 0:
+		health_p = 0
 	print(health_p)
 	hit.emit()
 	# disables collision
-	$Area2D/body.set_deferred("disabled", true)
+	$Area2D/hitbox.set_deferred("disabled", true)
+	await get_tree().create_timer(1).timeout
+	$Area2D/hitbox.set_deferred("disabled", false)
+	
+ 
+	
+	
