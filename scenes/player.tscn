@@ -9,11 +9,16 @@ size = Vector2(7, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(22, 5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 15.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 4.0
-height = 16.0
+height = 24.0
 
 [node name="player" type="CharacterBody2D" unique_id=1527458513]
+collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682760418]
@@ -31,14 +36,14 @@ position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1847519713]
-visible = false
+collision_layer = 16
+collision_mask = 4
 
-[node name="body2" type="CollisionShape2D" parent="Area2D" unique_id=1355843075]
-position = Vector2(-1, 0)
-shape = SubResource("CapsuleShape2D_g2els")
+[node name="hitbox" type="CollisionShape2D" parent="Area2D" unique_id=1355843075]
+shape = SubResource("CircleShape2D_g2els")
 
 [node name="body" type="CollisionShape2D" parent="." unique_id=1488952968]
-position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_g2els")
+debug_color = Color(0.9632699, 1.92523e-07, 0.50253814, 0.41960785)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

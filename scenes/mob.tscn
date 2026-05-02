@@ -82,9 +82,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d4cuo"]
+radius = 15.033297
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsing"]
+radius = 5.0
+height = 28.0
 
 [node name="mob" type="RigidBody2D" unique_id=1621973403]
-collision_mask = 0
+collision_layer = 4
+collision_mask = 3
 gravity_scale = 0.0
 script = ExtResource("1_bsing")
 
@@ -99,14 +105,15 @@ visible = false
 rect = Rect2(-16, -18, 27, 38)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1485623117]
+collision_layer = 4
+collision_mask = 16
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=2143081003]
-visible = false
+[node name="hitbox" type="CollisionShape2D" parent="Area2D" unique_id=2143081003]
 shape = SubResource("CircleShape2D_d4cuo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=851265823]
-visible = false
-shape = SubResource("CircleShape2D_d4cuo")
+shape = SubResource("CapsuleShape2D_bsing")
+debug_color = Color(0.90664303, 0.0001272577, 0.7443815, 0.41960785)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

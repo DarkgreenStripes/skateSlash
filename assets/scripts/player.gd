@@ -38,6 +38,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(health_p)
 	hit.emit()
 	# disables collision
-	$Area2D/body2.set_deferred("disabled", true)
+	$Area2D/hitbox.set_deferred("disabled", true)
 	
 	
