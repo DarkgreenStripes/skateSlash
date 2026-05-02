@@ -493,4 +493,4 @@ tile_map_data = PackedByteArray("AAAYAPf/AAAAAAAAAAAZAPn/AAAAAAAAAAAWAPr/AAAAAAA
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="mob" parent="." unique_id=1621973403 instance=ExtResource("5_o6xl0")]
-position = Vector2(756, 18)
+position = Vector2(1026, 10)
