@@ -1,0 +1,41 @@
+<<<<<<< Updated upstream
+[gd_scene format=3 uid="uid://b84r2rfi41t8k"]
+
+[ext_resource type="Texture2D" uid="uid://gexsxch5k8o7" path="res://assets/sprites/UI BARS/empty_bar.png" id="1_1bvlm"]
+
+[sub_resource type="GDScript" id="GDScript_1bvlm"]
+script/source = "extends TextureProgressBar
+
+@onready var player:= get_parent().get_parent()
+
+func _ready() -> void:
+	value = 100
+
+func _process(delta: float) -> void:
+	value = player.health_p
+"
+=======
+[gd_scene format=3 uid="uid://cmx8b8sd4rw13"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/UI BARS/empty_bar.png" id="1_1bvlm"]
+[ext_resource type="Script" path="res://assets/scripts/health_bar.gd" id="2_y3kqx"]
+>>>>>>> Stashed changes
+
+[node name="health_bar" type="TextureProgressBar" unique_id=1135364260]
+anchors_preset = -1
+anchor_right = -0.00086805556
+anchor_bottom = -0.0015432099
+offset_right = 101.0
+offset_bottom = 71.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_1bvlm")
+texture_progress = ExtResource("1_1bvlm")
+tint_under = Color(1, 0.8423262, 0.89413357, 1)
+tint_progress = Color(1, 0.12156863, 0.45882353, 1)
+<<<<<<< Updated upstream
+script = SubResource("GDScript_1bvlm")
+=======
+script = ExtResource("2_y3kqx")
+>>>>>>> Stashed changes
+metadata/_edit_use_anchors_ = true
