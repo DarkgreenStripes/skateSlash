@@ -2,7 +2,7 @@ extends RigidBody2D
 signal hit
 
 @export var health_m:= 100
-@export var damage_dealt_m:= 10
+@export var damage_dealt_m:= 50
 
 @onready var player = get_node("../player")
 @onready var damage_taken_m = player.damage_dealt_p
@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	on_death_mob()
+	
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
@@ -30,3 +31,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	$Area2D/hitbox.set_deferred("disabled", true)
 	await get_tree().create_timer(0.5).timeout
 	$Area2D/hitbox.set_deferred("disabled", false)
+
+func on_death_mob():
+	if health_m <= 0:
+		queue_free()
