@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://b84r2rfi41t8k"]
 
 [ext_resource type="Texture2D" uid="uid://gexsxch5k8o7" path="res://assets/sprites/UI BARS/empty_bar.png" id="1_1bvlm"]
@@ -13,6 +14,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	value = player.health_p
 "
+=======
+[gd_scene format=3 uid="uid://cmx8b8sd4rw13"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/UI BARS/empty_bar.png" id="1_1bvlm"]
+[ext_resource type="Script" path="res://assets/scripts/health_bar.gd" id="2_y3kqx"]
+>>>>>>> Stashed changes
 
 [node name="health_bar" type="TextureProgressBar" unique_id=1135364260]
 anchors_preset = -1
@@ -26,5 +33,9 @@ texture_under = ExtResource("1_1bvlm")
 texture_progress = ExtResource("1_1bvlm")
 tint_under = Color(1, 0.8423262, 0.89413357, 1)
 tint_progress = Color(1, 0.12156863, 0.45882353, 1)
+<<<<<<< Updated upstream
 script = SubResource("GDScript_1bvlm")
+=======
+script = ExtResource("2_y3kqx")
+>>>>>>> Stashed changes
 metadata/_edit_use_anchors_ = true
