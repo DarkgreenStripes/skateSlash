@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://swly8brnb8xc" path="res://scenes/flow_meter.tscn" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c11adn37yd7ae" path="res://assets/tilemap/Final/Final/Background_0.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://uxml5hcb8lkd" path="res://scenes/mob.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://b84r2rfi41t8k" path="res://scenes/health_bar.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -471,17 +472,25 @@ position = Vector2(0, -32)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=2144186297]
 zoom = Vector2(3, 3)
-position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="flow_meter" parent="player/Camera2D" unique_id=2134586988 instance=ExtResource("3_tefeu")]
-position = Vector2(-39.499992, -77)
+position = Vector2(-54, -77)
 scale = Vector2(2.548387, 2.5)
 
 [node name="score" parent="player/Camera2D" unique_id=662391061 instance=ExtResource("2_tbgi4")]
-offset_left = -138.0
-offset_top = -89.0
-offset_right = -98.0
-offset_bottom = -66.0
+offset_left = -174.0
+offset_top = -87.0
+offset_right = -134.0
+offset_bottom = -64.0
+
+[node name="health_bar" parent="player/Camera2D" unique_id=1135364260 instance=ExtResource("8_tipki")]
+anchor_left = -0.00086805556
+anchor_top = -0.0015432099
+offset_left = 61.0
+offset_top = -95.0
+offset_right = 161.0
+offset_bottom = -25.0
 
 [node name="Area2D" parent="." unique_id=234812232 instance=ExtResource("2_0wfyh")]
 collision_layer = 4
