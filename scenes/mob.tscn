@@ -102,6 +102,7 @@ animation = &"run"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2052518113]
 visible = false
+position = Vector2(2, -1)
 rect = Rect2(-16, -18, 27, 38)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1485623117]

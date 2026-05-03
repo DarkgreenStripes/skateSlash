@@ -3,9 +3,10 @@ signal hit
 
 
 @export var health_p:= 100
-@export var damage_dealt_p:= 50
+@export var damage_dealt_p:= 100
 var SPEED = 250.0
 var JUMP_VELOCITY = -200.0
+var spawn_point:= Vector2(0.0, -1.0) 
 
 @onready var mob = get_node("../mob")
 @onready var damage_taken_p = mob.damage_dealt_m
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = SPEED
 	
 	move_and_slide()
+	on_death()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -42,6 +44,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(1).timeout
 	$Area2D/hitbox.set_deferred("disabled", false)
 	
- 
+func on_death ():
+	if health_p <= 0 or position.y >= 1000.0:
+		get_tree().reload_current_scene()
 	
 	
