@@ -472,7 +472,6 @@ position = Vector2(0, -32)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=2144186297]
 zoom = Vector2(3, 3)
-position_smoothing_enabled = true
 
 [node name="flow_meter" parent="player/Camera2D" unique_id=2134586988 instance=ExtResource("3_tefeu")]
 position = Vector2(-39.499992, -77)
