@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c11adn37yd7ae" path="res://assets/tilemap/Final/Final/Background_0.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://uxml5hcb8lkd" path="res://scenes/mob.tscn" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cmqiafn3m7urw" path="res://scenes/health_bar.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://dtchwrs24g4js" path="res://scenes/end_point.tscn" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("3_sugp2")
@@ -507,3 +508,6 @@ position = Vector2(776, 18)
 
 [node name="mob2" parent="." unique_id=1261841168 instance=ExtResource("5_o6xl0")]
 position = Vector2(1221, 22)
+
+[node name="end_point" parent="." unique_id=1628276781 instance=ExtResource("9_85g3d")]
+position = Vector2(2376, 64)

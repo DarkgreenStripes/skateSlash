@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dtchwrs24g4js"]
+
+[sub_resource type="GDScript" id="GDScript_eoqtk"]
+script/source = "extends Area2D
+signal end
+
+@onready var player:= get_node(\"../player\")
+
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body == player:
+		end.emit()
+		get_tree()
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoqtk"]
+size = Vector2(120, 20)
+
+[node name="end_point" type="Area2D" unique_id=1628276781]
+collision_layer = 16
+collision_mask = 16
+script = SubResource("GDScript_eoqtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1963430404]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_eoqtk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
