@@ -5,7 +5,7 @@ signal hit
 @export var health_p:= 100
 @export var damage_dealt_p:= 10
 var SPEED = 250.0
-var JUMP_VELOCITY = -200.0
+var JUMP_VELOCITY = -250.0
 var spawn_point:= Vector2(0.0, -1.0) 
 
 @onready var mob = get_node("../mob")
