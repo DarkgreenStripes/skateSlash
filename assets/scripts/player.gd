@@ -1,6 +1,6 @@
 extends CharacterBody2D
 signal hit
-
+signal game_over
 
 @export var health_p:= 100
 @export var damage_dealt_p:= 10
@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	on_death()
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	health_p -= damage_taken_p
 	if health_p <= 0:
@@ -46,6 +45,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func on_death ():
 	if health_p <= 0 or position.y >= 1000.0:
-		get_tree().reload_current_scene()
+		game_over.emit()
+		
 	
 	

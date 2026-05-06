@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ciplwlaxkqn56"]
+
+[ext_resource type="Script" uid="uid://dokq3kl014qqy" path="res://assets/scripts/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
+font_size = 64
+font_color = Color(0.7882353, 1, 0.7019608, 1)
+outline_size = 3
+outline_color = Color(0.4275448, 0.6784189, 0.64154464, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=300906107]
+script = ExtResource("1_ahhtf")
+
+[node name="Message" type="Label" parent="." unique_id=1961066356]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 89.333336
+grow_horizontal = 2
+text = "SKATE SLASH"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=137216510]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -26.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=1360819520]
+
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
